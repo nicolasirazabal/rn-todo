@@ -29,14 +29,11 @@ export default class Main extends Component {
                 <ScrollView style={styles.scrollContainer}>
                     {notes}
                 </ScrollView>
-                <View style={styles.footer}>
+                <View>
                     <TextInput 
-                        style={styles.textInput}
-                        placeholder='>note'
+                        placeholder='>Escribir nota aquí'
                         onChangeText={(noteText)=> this.setState({noteText})}
-                        value={this.state.noteText}
-                        placeholderTextColor='white'
-                        underlineColorAndroid='transparent'>
+                        value={this.state.noteText}>
                     </TextInput>
                 </View>
                 <TouchableOpacity onPress={ this.addNote.bind(this) } style={styles.addButton}>
