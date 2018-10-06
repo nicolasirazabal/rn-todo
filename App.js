@@ -7,7 +7,6 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
-import Note from './app/components/Note.js';
 export default class App extends Component {
     constructor(props){
         super(props);
@@ -18,8 +17,13 @@ export default class App extends Component {
     }
     render() {
         let notes = this.state.noteArray.map((val, key)=>{
-            return <Note key={key} keyval={key} val={val}
-                    deleteMethod={()=>this.deleteNote(key)}/>
+            return <View key={key}>
+                        <Text>{val.date}</Text>
+                        <Text>{val.note}</Text>
+                        <TouchableOpacity onPress={()=>this.deleteNote(key)}>
+                            <Text>Eliminar</Text>
+                        </TouchableOpacity>
+                    </View>
         });
         return (
             <View style={styles.container}>
